@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${book.title}">Detalhes do Livro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/books">Catálogo de Livros</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="h3 mb-4" th:text="${book.title}">Título</h1>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-3">Autor</dt>
+                <dd class="col-sm-9" th:text="${book.author}"></dd>
+
+                <dt class="col-sm-3">Gênero</dt>
+                <dd class="col-sm-9" th:text="${book.genre}"></dd>
+
+                <dt class="col-sm-3">Ano de Lançamento</dt>
+                <dd class="col-sm-9" th:text="${book.publicationYear}"></dd>
+
+                <dt class="col-sm-3">Sinopse</dt>
+                <dd class="col-sm-9" th:text="${book.synopsis}"></dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <a href="/books" class="btn btn-secondary">Voltar</a>
+        <a th:href="@{'/books/' + ${book.id} + '/edit'}" class="btn btn-primary">Editar</a>
+    </div>
+</div>
+
+</body>
+</html>
